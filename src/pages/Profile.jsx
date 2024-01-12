@@ -199,7 +199,7 @@ const Profile = () => {
                     <>
                     <div className="p-4 flex justify-center items-center">
                         <input type="file" name="gambar" accept='image/*' style={{display: 'none'}} onChange={handleFileChange} ref={inputRef}/>
-                        <img src={DataProfile.gambar ? DataProfile.previewGambar : "No-image-found.jpg"} className='rounded-lg w-50 border shadow-md' onClick={handleClick}/>
+                        <img src={DataProfile.gambar ? DataProfile.previewGambar : "/activities-alan-creative-2024/No-image-found.jpg"} className='rounded-lg w-50 border shadow-md' onClick={handleClick}/>
                     </div>
                     <div className="p-4">
                         <h1 className='text-xl text-center mb-2 font-bold'>Biodata Diri</h1>

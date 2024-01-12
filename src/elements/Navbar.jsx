@@ -102,7 +102,7 @@ const Navbar = () => {
             setErrorLogin(false)
             window.localStorage.setItem('token', response.data.token)
             sessionStorage.setItem('role', response.data.role)
-            response.data.role === 'User' ? [navigate('/'), Profile(setLoginStat, setDatUser, setLoading), setOpenLoginModal(false)] : response.data.role === 'admin' ? [navigate('/activities-alan-creative-2024/Admin'), Profile(setLoginStat, setDatUser, setLoading), setOpenLoginModal(false)] : [navigate('/activities-alan-creative-2024/Staff'), Profile(setLoginStat, setDatUser, setLoading), setOpenLoginModal(false)]
+            response.data.role === 'User' ? [navigate('/activities-alan-creative-2024/'), Profile(setLoginStat, setDatUser, setLoading), setOpenLoginModal(false)] : response.data.role === 'admin' ? [navigate('/activities-alan-creative-2024/Admin'), Profile(setLoginStat, setDatUser, setLoading), setOpenLoginModal(false)] : [navigate('/activities-alan-creative-2024/Staff'), Profile(setLoginStat, setDatUser, setLoading), setOpenLoginModal(false)]
         }
     }
 
