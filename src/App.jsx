@@ -15,13 +15,13 @@ function App() {
       <Navbar />
       <div style={{marginTop: "70px"}}>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/*" element={<Home />}></Route>
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="/Admin" element={<AdminHome />} />
-        <Route path="/Admin/*" element={<AdminHome />} />
-        <Route path="/Staff" element={<StaffHome />} />
+        <Route path="/activities-alan-creative-2024/" element={<Home />}/>
+        <Route path="/activities-alan-creative-2024/*" element={<Home />}></Route>
+        <Route path="/activities-alan-creative-2024/Cart" element={<Cart />} />
+        <Route path="/activities-alan-creative-2024/Profile" element={<Profile />} />
+        <Route path="/activities-alan-creative-2024/Admin" element={<AdminHome />} />
+        <Route path="/activities-alan-creative-2024/Admin/*" element={<AdminHome />} />
+        <Route path="/activities-alan-creative-2024/Staff" element={<StaffHome />} />
       </Routes>
       </div>
     </Fragment>
