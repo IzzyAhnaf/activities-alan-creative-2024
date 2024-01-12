@@ -16,7 +16,6 @@ import AdminHome from './pages/AdminHome.jsx'
 import StaffHome from './pages/StaffHome.jsx'
 import ProdukPages from './pages/AdminHomeChildrenPages/ProdukPages.jsx'
 import TransaksiPages from './pages/AdminHomeChildrenPages/TransaksiPages.jsx'
-const base = '/toko-latihan/';
 
 const router = createBrowserRouter([
   {
