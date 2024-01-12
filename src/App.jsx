@@ -15,7 +15,7 @@ function App() {
       <Navbar />
       <div style={{marginTop: "70px"}}>
       <Routes>
-        <Route path={'/'} element={<Home />}/>
+        <Route path="/" element={<Home />}/>
         <Route path="/*" element={<Home />}></Route>
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Profile" element={<Profile />} />

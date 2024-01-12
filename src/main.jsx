@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './pages/Home.jsx'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Register from './pages/Register.jsx'
 import Login from './pages/Login.jsx'
 import Cart from './pages/Cart.jsx'
@@ -17,8 +16,7 @@ import StaffHome from './pages/StaffHome.jsx'
 import ProdukPages from './pages/AdminHomeChildrenPages/ProdukPages.jsx'
 import TransaksiPages from './pages/AdminHomeChildrenPages/TransaksiPages.jsx'
 
-const router = createBrowserRouter([
-  {
+const router = createBrowserRouter([{
     path: '/',
     element: <App />,
     // errorElement: <ErrorPages />,
