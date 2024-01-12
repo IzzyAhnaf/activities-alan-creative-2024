@@ -55,19 +55,19 @@ const Navbar = () => {
 
     const LinkTo = (role) => {
         const ButtonIndex = sessionStorage.getItem('buttonIndex');
-        if (role === 'User' || role === null || role === undefined) {
+        if (role === "User" || role === null || role === undefined) {
           switch (ButtonIndex) {
             case 0:
-              return '/activities-alan-creative-2024/*/Audio';
+              return '/activities-alan-creative-2024/*/Home/Audio';
             case 1:
-              return '/activities-alan-creative-2024/*/Monitor';
+              return '/activities-alan-creative-2024/*/Home/Monitor';
             case 2:
-              return '/activities-alan-creative-2024/*/PCComponent';
+              return '/activities-alan-creative-2024/*/Home/PCComponent';
           }
         } else if (role === 'admin') {
-          return '/activities-alan-creative-2024/Admin';
+          return '/activities-alan-creative-2024/*/Admin';
         } else if (role === 'staff') {
-          return '/activities-alan-creative-2024/Staff';
+          return '/activities-alan-creative-2024/*/Staff';
         }
       };
 
@@ -118,13 +118,13 @@ const Navbar = () => {
                 <div className="flex md:order-1">
                     {role === 'User' || role === null || role === undefined ? (
                     <button type="button" aria-expanded="false" className="md:hidden text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1"
-                    onClick={() => {navigate('/activities-alan-creative-2024/Cart'); setMenuOpen(false)}}>
+                    onClick={() => {navigate('/activities-alan-creative-2024/*/Cart'); setMenuOpen(false)}}>
                         <span><IoMdCart size={20}/></span>
                     </button>
                     )
                     : (
                     <button type="button" aria-expanded="false" className="md:hidden text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1"
-                        onClick={() => {navigate('activities-alan-creative-2024/Admin/*/Produk'); setMenuOpen(false)}}>
+                        onClick={() => {navigate('activities-alan-creative-2024/*/Admin/*/Produk'); setMenuOpen(false)}}>
                             <span><FaProductHunt size={20}/></span>
                     </button>
                     )}
@@ -173,11 +173,11 @@ const Navbar = () => {
                                     <>
                                         <li style={{width: '50%'}}>
                                             {role === 'User' ? (
-                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/Cart');setMenuOpen(false)}}>
+                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/*/Cart');setMenuOpen(false)}}>
                                                 <IoMdCart className='me-1'/>Cart
                                             </span>
                                             ) : role === 'admin' ? (
-                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/Admin/*/Produk');setMenuOpen(false)}}>
+                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/*/Admin/*/Produk');setMenuOpen(false)}}>
                                                 <FaProductHunt className='me-1'/>Product
                                             </span>
                                             ) : (
@@ -188,7 +188,7 @@ const Navbar = () => {
                                         </li>
                                         <li style={{width: '50%'}}>
                                             {role === 'admin' ? (
-                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/Admin/*/Transaksi');setMenuOpen(false)}}>
+                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/*/Admin/*/Transaksi');setMenuOpen(false)}}>
                                                 <RiBillFill className='me-1'/> Transaction
                                             </span>
                                             ) : role === 'staff' ? (
@@ -234,7 +234,7 @@ const Navbar = () => {
                                     <>
                                         <li>
                                             {role === 'User' ? (
-                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/Cart');setMenuOpen(false)}}>
+                                            <span className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 cursor-pointer" onClick={() => {navigate('/activities-alan-creative-2024/*/Cart');setMenuOpen(false)}}>
                                                 <IoMdCart className='me-1'/>Cart
                                             </span>
                                             ) : (
@@ -243,7 +243,7 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <span>
-                                            <NavLink className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 text-black" to="/activities-alan-creative-2024/Profile" onClick={() => setMenuOpen(false)}>
+                                            <NavLink className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 text-black" to="/activities-alan-creative-2024/*/Profile" onClick={() => setMenuOpen(false)}>
                                                 <img src={DatUser.gambar ? DatUser.previewGambar : "No-image-found.jpg"} className='w-7 rounded-full me-2'/>
                                                 {DatUser.namauser}
                                             </NavLink>    

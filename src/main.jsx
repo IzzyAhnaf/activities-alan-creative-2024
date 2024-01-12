@@ -17,56 +17,52 @@ import ProdukPages from './pages/AdminHomeChildrenPages/ProdukPages.jsx'
 import TransaksiPages from './pages/AdminHomeChildrenPages/TransaksiPages.jsx'
 
 const router = createBrowserRouter([{
-    path: '/activities-alan-creative-2024/',
+    path: '/activities-alan-creative-2024//*',
     element: <App />,
     // errorElement: <ErrorPages />,
     children: [
       {
-        path: '/activities-alan-creative-2024/Cart',
+        path: '/activities-alan-creative-2024/*/Cart',
         element: <Cart />,
       },
       {
-        path: '/activities-alan-creative-2024/Profile',
+        path: '/activities-alan-creative-2024/*/Profile',
         element: <Profile />,
-      },
+      }, 
       {
-        path: '/activities-alan-creative-2024/*',
+        path: '/activities-alan-creative-2024/*/Home',
         element: <App />,
-        children: [
+        children: [  
           {
-            path: '/activities-alan-creative-2024/*/Audio',
+            path: '/activities-alan-creative-2024/*/Home/Audio',
             element: <AudioPages />,
           },
           {
-            path: '/activities-alan-creative-2024/*/Monitor',
+            path: '/activities-alan-creative-2024/*/Home/Monitor',
             element: <MonitorPages />,
           },
           {
-            path: '/activities-alan-creative-2024/*/PCComponent',
+            path: '/activities-alan-creative-2024/*/Home/PCComponent',
             element: <PCComponentPages />,
-          },      
-          {
-            path: '/activities-alan-creative-2024/*/Produk',
-            element: <ErrorPages />,
-          }
+          },     
         ]
       },
       {
-        path: '/activities-alan-creative-2024/Admin',
+        path: '/activities-alan-creative-2024/*/Admin',
         element: <App />,
         children: [
           {
-            path: '/activities-alan-creative-2024/Admin/*/Produk',
+            path: '/activities-alan-creative-2024/*/Admin/Produk',
             element: <ProdukPages />,
           },
           {
-            path: '/activities-alan-creative-2024/Admin/*/Transaksi',
+            path: '/activities-alan-creative-2024/*/Admin/Transaksi',
             element: <TransaksiPages   />,
           }
         ]
       },
       {
-        path: '/activities-alan-creative-2024/Staff',
+        path: '/activities-alan-creative-2024/*/Staff',
         element: <StaffHome />,
       }
     ]
