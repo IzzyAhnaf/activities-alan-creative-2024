@@ -82,7 +82,7 @@ const Home = () => {
                     )}
                     <div>
                         <Routes>
-                            <Route path='/*/Audio' element={<AudioPages/>}/>
+                            <Route path='/toko-latihan/*/Audio' element={<AudioPages/>}/>
                             <Route path='/*/Monitor' element={<MonitorPages/>}/>
                             <Route path='/*/PcComponent' element={<PCComponentPages/>}/>
                         </Routes>

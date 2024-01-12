@@ -20,7 +20,7 @@ const base = '/toko-latihan/';
 
 const router = createBrowserRouter([
   {
-    path: base,
+    path: '/',
     element: <App />,
     // errorElement: <ErrorPages />,
     children: [
