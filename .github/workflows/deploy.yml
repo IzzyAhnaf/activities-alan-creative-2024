@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - production
-    workflow_dispatch:
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
@@ -30,7 +31,7 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies (React Vite)
-        working-directory: ./frontend  # Ganti sesuai dengan struktur proyek Anda
+        working-directory: ./frontend 
         run: |
           npm install
 
@@ -55,10 +56,10 @@ jobs:
           php artisan optimize
 
       - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: frontend-dist 
-        path: ./frontend/dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: frontend-dist 
+          path: ./frontend/dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
