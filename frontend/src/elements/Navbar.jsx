@@ -201,7 +201,7 @@ const Navbar = () => {
                                         </li>
                                         <li style={{width: isMobile ? '100%' : ''}}>
                                             <span>
-                                            <NavLink className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 text-black" to="/activities-alan-creative-2024/Profile" onClick={() => setMenuOpen(false)}>
+                                            <NavLink className="flex justify-center items-center h-10 px-3 my-2 border border-gray-200 rounded-full shadow-sm ms-2 me-2 text-black" to="/activities-alan-creative-2024/*/Profile" onClick={() => setMenuOpen(false)}>
                                                 <img src={DatUser.gambar ? DatUser.previewGambar : "No-image-found.jpg"} className='w-7 rounded-full me-2'/>
                                                 {DatUser.namauser}
                                             </NavLink>    
