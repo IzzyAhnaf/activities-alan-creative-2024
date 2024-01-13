@@ -56,14 +56,15 @@ const Navbar = () => {
     const LinkTo = (role) => {
         const ButtonIndex = sessionStorage.getItem('buttonIndex');
         if (role === "User" || role === null || role === undefined) {
-          switch (ButtonIndex) {
-            case 0:
-              return '/activities-alan-creative-2024/*/Home/Audio';
-            case 1:
-              return '/activities-alan-creative-2024/*/Home/Monitor';
-            case 2:
-              return '/activities-alan-creative-2024/*/Home/PCComponent';
-          }
+        //   switch (ButtonIndex) {
+        //     case 0:
+        //       return '/activities-alan-creative-2024/*/Home/Audio';
+        //     case 1:
+        //       return '/activities-alan-creative-2024/*/Home/Monitor';
+        //     case 2:
+        //       return '/activities-alan-creative-2024/*/Home/PCComponent';
+        //   }
+        return '/activities-alan-creative-2024/';
         } else if (role === 'admin') {
           return '/activities-alan-creative-2024/*/Admin';
         } else if (role === 'staff') {
