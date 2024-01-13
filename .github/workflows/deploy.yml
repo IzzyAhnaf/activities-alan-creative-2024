@@ -54,11 +54,16 @@ jobs:
         run: |
           php artisan optimize
 
+      - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: frontend-dist 
+        path: ./frontend/dist
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontend/dist
-          user_name: ${{ github.actor }}
-          user_email: ${{ github.actor }}@users.noreply.github.com
+          branch: production
           commit_message: "Deploy to GitHub Pages"
