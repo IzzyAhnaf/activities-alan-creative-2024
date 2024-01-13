@@ -5,7 +5,6 @@ on:
     branches:
       - production
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
@@ -62,6 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
+          name: frontend-dist 
           path: ./frontend/dist
 
       - name: Debug Artifact Contents After Upload
@@ -71,5 +71,14 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
-          publish_dir: ./frontend/dist
-          commit_message: "Deploy to GitHub Pages"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          timeout: 600000
+          error_count: 10
+          reporting_interval: 5000
+          artifact_name: frontend-dist
+          preview: false
+        env:
+          COMPOSER_PROCESS_TIMEOUT: 0
+          COMPOSER_NO_INTERACTION: 1
+          COMPOSER_NO_AUDIT: 1
+
