@@ -55,7 +55,7 @@ jobs:
           php artisan optimize
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/deploy-pages@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontend/dist  # Ganti sesuai dengan struktur proyek Anda
