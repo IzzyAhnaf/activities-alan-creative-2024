@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - production
+    workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-toke: write
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
   deploy:
