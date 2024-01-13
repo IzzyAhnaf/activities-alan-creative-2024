@@ -71,4 +71,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-       
+        with:
+          publish_dir: ./frontend/dist
+          commit_message: "Deploy to GitHub Pages"
