@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -30,7 +30,7 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies (React Vite)
-        working-directory: ./frontend 
+        working-directory: ./frontend
         run: |
           npm install
 
@@ -53,20 +53,17 @@ jobs:
         working-directory: ./backend
         run: |
           php artisan optimize
-          
-      - name: Debug Artifact Contents
-        run: |
-          ls -R ./frontend/dist
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: frontend-dist 
+          name: frontend-dist
           path: ./frontend/dist
 
-      - name: Debug Artifact Contents After Upload
+      - name: Debug Artifact Contents
         run: |
-          ls -R ./frontend/dist
+          ls -alR ./frontend/dist
+          find ./frontend/dist -type l
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
@@ -81,4 +78,3 @@ jobs:
           COMPOSER_PROCESS_TIMEOUT: 0
           COMPOSER_NO_INTERACTION: 1
           COMPOSER_NO_AUDIT: 1
-
