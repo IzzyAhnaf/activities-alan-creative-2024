@@ -54,34 +54,11 @@ jobs:
         run: |
           php artisan optimize
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: frontend-dist
-          path: ./frontend/dist
-
-      - name: Debug Artifact
-        run: |
-          ls -alR ./frontend/dist
-          du -sh ./frontend/dist
-          find ./frontend/dist -type l
-
-      - name: Debug Deployment
-        run: |
-          echo "GitHub Token: ${{ secrets.GITHUB_TOKEN }}"
-          echo "Publish Dir: ./frontend/dist"
-          echo "Commit Message: Deploy to GitHub Pages"
-          
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          timeout: 600000
-          error_count: 10
-          reporting_interval: 5000
-          artifact_name: frontend-dist
-          preview: false
-        env:
-          COMPOSER_PROCESS_TIMEOUT: 0
-          COMPOSER_NO_INTERACTION: 1
-          COMPOSER_NO_AUDIT: 1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist
+          user_name: ${{ github.actor }}
+          user_email: ${{ github.actor }}@users.noreply.github.com
+          commit_message: "Deploy to GitHub Pages"
