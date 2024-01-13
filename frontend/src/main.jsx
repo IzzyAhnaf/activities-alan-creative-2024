@@ -11,7 +11,6 @@ import AudioPages from './pages/HomeChildrenPages/AudioPages.jsx'
 import MonitorPages from './pages/HomeChildrenPages/MonitorPages.jsx'
 import ErrorPages from './pages/ErrorPages.jsx'
 import PCComponentPages from './pages/HomeChildrenPages/PCComponent.jsx'
-import AdminHome from './pages/AdminHome.jsx'
 import StaffHome from './pages/StaffHome.jsx'
 import ProdukPages from './pages/AdminHomeChildrenPages/ProdukPages.jsx'
 import TransaksiPages from './pages/AdminHomeChildrenPages/TransaksiPages.jsx'
@@ -19,7 +18,7 @@ import TransaksiPages from './pages/AdminHomeChildrenPages/TransaksiPages.jsx'
 const router = createBrowserRouter([{
     path: '/activities-alan-creative-2024//*',
     element: <App />,
-    // errorElement: <ErrorPages />,
+    errorElement: <ErrorPages />,
     children: [
       {
         path: '/activities-alan-creative-2024/*/Cart',
