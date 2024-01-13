@@ -1,60 +1,49 @@
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ['production']
-  workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
+    branches:
+      - production
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: '14'
 
-      - name: Install dependencies
+      - name: Install Dependencies (React Vite)
+        working-directory: ./frontend  # Ganti sesuai dengan struktur proyek Anda
+        run: |
+          npm install
+
+      - name: Build Frontend
         working-directory: ./frontend
-        run: npm install
+        run: |
+          npm run build
 
-      - name: Build
-        working-directory: ./frontend
-        run: npm run build
-
-      - name: Install Composer dependencies
+      - name: Install Composer Dependencies (Laravel)
         working-directory: ./backend
-        run: composer install --no-dev --prefer-dist
+        run: |
+          composer install --no-dev --prefer-dist
 
-      - name: Build and Optimize Laravel
+      - name: Build and Optimize Laravel Assets
         working-directory: ./backend
-        run: php artisan optimize
-
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-        path: './dist'
-
+        run: |
+          php artisan optimize
 
       - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./frontend/dist  # Ganti sesuai dengan struktur proyek Anda
-        user_name: ${{ github.actor }}
-        user_email: ${{ github.actor }}@users.noreply.github.com
-        commit_message: "Deploy to GitHub Pages"
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist  # Ganti sesuai dengan struktur proyek Anda
+          user_name: ${{ github.actor }}
+          user_email: ${{ github.actor }}@users.noreply.github.com
+          commit_message: "Deploy to GitHub Pages"
 
