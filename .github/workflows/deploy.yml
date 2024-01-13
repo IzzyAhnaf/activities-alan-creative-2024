@@ -54,6 +54,10 @@ jobs:
         working-directory: ./backend
         run: |
           php artisan optimize
+          
+      - name: Debug Artifact Contents
+        run: |
+          ls -R ./frontend/dist
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -61,6 +65,10 @@ jobs:
           name: frontend-dist 
           path: ./frontend/dist
 
+      - name: Debug Artifact Contents After Upload
+        run: |
+          ls -R ./frontend/dist
+          
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
