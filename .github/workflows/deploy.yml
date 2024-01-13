@@ -59,9 +59,10 @@ jobs:
           name: frontend-dist
           path: ./frontend/dist
 
-      - name: Debug Artifact Contents
+      - name: Debug Artifact
         run: |
           ls -alR ./frontend/dist
+          du -sh ./frontend/dist
           find ./frontend/dist -type l
 
       - name: Deploy to GitHub Pages
