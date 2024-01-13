@@ -66,6 +66,12 @@ jobs:
           du -sh ./frontend/dist
           find ./frontend/dist -type l
 
+      - name: Debug Deployment
+        run: |
+          echo "GitHub Token: ${{ secrets.GITHUB_TOKEN }}"
+          echo "Publish Dir: ./frontend/dist"
+          echo "Commit Message: Deploy to GitHub Pages"
+          
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
