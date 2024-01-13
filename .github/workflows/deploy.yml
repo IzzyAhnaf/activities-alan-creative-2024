@@ -56,9 +56,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist  # Ganti sesuai dengan struktur proyek Anda
-          branch: production
-          commit_message: "Deploy to GitHub Pages"
-
+        id: deployment
